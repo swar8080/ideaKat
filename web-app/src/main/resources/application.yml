@@ -1,0 +1,56 @@
+server:
+  port: 5000
+  servlet.session.timeout: 30m
+  tomcat:
+    remote-ip-header: X-Forwarded-For
+    protocol-header: X-Forwarded-Proto
+
+spring:
+  jpa:
+    properties:
+      hibernate:
+        multiTenancy: SCHEMA
+        multi_tenant_connection_provider: org.ideakat.webapp.persistence.multitenancy.PooledHibernateMultiTenantConnectionProvider
+        tenant_identifier_resolver: org.ideakat.webapp.persistence.multitenancy.NoOpHibernateTenantIdentifierResolver
+        globally_quoted_identifiers: true
+        jdbc:
+          timezone: UTC
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+  servlet.multipart:
+    max-file-size: 3MB
+    max-request-size: 6MB
+
+  mail:
+    host: email-smtp.us-east-1.amazonaws.com
+    port: 465
+    protocol: smtps
+    properies.mail.smtp:
+      starttls:
+        enable: true
+        required: true
+      ssl.enable: true
+    properties.mail.smtps:
+      auth: true
+
+  mvc.favicon.enabled: false
+
+ideakat:
+  publicUrl: https://ideaKat.com
+  db:
+    system-role: system_user
+    tenant-role: tenant_user
+  email:
+    fromAddress: ideaKat@ideakat.com
+    confirmationExpirySeconds:
+      default: 28800
+      passwordReset: 3600
+    asyncThreadPool:
+      coresize: 1
+      maxPoolSize: 5
+      keepAliveSeconds: 30
+      queueCapacity: 20
+      throttleQueueSizeThreshold: 10
+      throttleWaitTimeMs: 5000

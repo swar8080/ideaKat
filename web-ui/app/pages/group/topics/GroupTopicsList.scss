@@ -1,0 +1,18 @@
+.groupTopicList {
+
+    .groupTopicList__heading {
+        font-family: $group-heading-font;
+        font-size: ms(3);
+        text-align: center;
+    }
+
+    .groupTopicList__topics {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .groupTopicCard {
+            margin-bottom: 0.5rem;
+        }
+    }
+}

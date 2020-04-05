@@ -1,0 +1,69 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet id="add-admin-confirmation-email-index" author="steven swartz">
+        <createIndex
+                tableName="adminEmailConfirmation"
+                indexName="admin_email_confirmation_email_index"
+                unique="false"
+        >
+            <column name="email"/>
+        </createIndex>
+    </changeSet>
+    <changeSet id="add-invite-confirmation-email-index" author="steven swartz">
+        <createIndex
+                tableName="inviteEmailConfirmation"
+                indexName="invite_email_confirmation_email_index"
+                unique="false"
+        >
+            <column name="email"/>
+        </createIndex>
+    </changeSet>
+    <changeSet id="add-password-reset-confirmation-email-index" author="steven swartz">
+        <createIndex
+                tableName="passwordResetEmailConfirmation"
+                indexName="password_reset_email_index"
+                unique="false"
+        >
+            <column name="email"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="drop-globally-unique-group-name" author="steven swartz">
+        <dropUniqueConstraint
+                tableName="groups"
+                constraintName="uc_groupsgroupname_col"
+                uniqueColumns="groupName"
+        />
+    </changeSet>
+    <changeSet id="add-unique-group-name-index-per-tenant" author="steven swartz">
+        <createIndex tableName="groups" indexName="unique_group_name_per_tenant" unique="true">
+            <column name="tenantId"/>
+            <column name="groupName"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="index-topic-group" author="steven-swartz">
+        <createIndex tableName="topic" indexName="topic_group_index">
+            <column name="groupId"/>
+        </createIndex>
+    </changeSet>
+    <changeSet id="index-topic-createDate" author="steven-swartz">
+        <createIndex tableName="topic" indexName="topic_createdate_index">
+            <column name="createDate"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="index-topicidea-topic" author="steven-swartz">
+        <createIndex tableName="topicIdea" indexName="topicidea_topic_index">
+            <column name="topic"/>
+        </createIndex>
+    </changeSet>
+    <changeSet id="index-topicidea-createDate" author="steven-swartz">
+        <createIndex tableName="topicIdea" indexName="topicidea_createdate_index">
+            <column name="createDate"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>

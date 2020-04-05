@@ -1,0 +1,11 @@
+.editImageFormInput {
+    img {
+        width: 200px;
+    } 
+ 
+    .editImageFormInput__controls {
+        display: flex;
+        flex-direction: row;
+        margin-top: 0.25rem;
+    }
+ }

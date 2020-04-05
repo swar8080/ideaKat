@@ -1,0 +1,25 @@
+.groupTopicPage {
+    width: 55vw;
+    flex: 1;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .groupTopicPage__topicLists {
+        max-height: 84vh;
+        overflow-y: auto;
+        background-color: transparent;
+    }
+    
+    .groupTopicPage__controls {
+        align-self: center;
+    }
+
+    .groupTopicPage__hasNoTopics {
+        align-self: center;
+    }
+}
+
+

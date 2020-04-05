@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${RDS_HOSTNAME}:${RDS_PORT}/${RDS_DB_NAME}
+    username: ${RDS_USERNAME}
+    password: ${RDS_PASSWORD}
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL95Dialect
+        jdbc:
+          batch_size: 10
+        format_sql: true
+    show-sql: true
+
+  liquibase:
+    enabled: true
+    change-log: classpath:/liquibase/changelog/db.changelog-master.xml
+    url: jdbc:postgresql://${RDS_HOSTNAME}:${RDS_PORT}/${RDS_DB_NAME}
+    user: ${RDS_USERNAME}
+    password: ${RDS_PASSWORD}
+    default-schema: public
+
+server.servlet.session.timeout: 60m
+
+ideakat:
+  publicUrl: https://dev.ideaKat.com
+  s3:
+    bucketName: ideakat-dev
+    bucketUrl: https://ideakat-dev.s3.amazonaws.com/

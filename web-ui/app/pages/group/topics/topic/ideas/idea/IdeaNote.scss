@@ -1,0 +1,83 @@
+.ideaNote {
+    font-size: ms(0);
+
+
+    @media (max-width: 1023px){
+        width: 40%;
+    }
+
+    @media (min-width: 1024px) {
+        width: 25%;
+    }
+
+    display: flex;
+    flex-direction: column;
+
+    box-shadow: 0 8px 6px -6px #777;
+
+    .ideaNote__header {
+        display: flex;
+        flex-direction: row;
+
+        .ideaNote__avatar {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            margin: 0.25rem;
+        }
+
+        .ideaNote__summary {
+            font-family: 'Caveat Brush', cursive;
+            text-align: center; 
+            flex-grow: 1;
+        }
+
+        .ideaNote__editControl {
+            cursor: pointer;
+            margin: 0 0.25rem;
+
+            &:hover {
+                color: $editHoverColour;
+            }
+        }
+    }
+    
+    .ideaNote__description {
+        flex-grow: 1;
+        flex-shrink: 1;
+
+        font-family: 'Caveat', cursive;
+        padding: 0.1rem 0.25rem;
+        overflow-y: auto;
+        overflow-x: hidden;
+        overflow-wrap: break-word;
+        white-space: pre-wrap;
+    }
+
+    .ideaNote__tags {
+        flex-shrink: 0;
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        overflow-y: hidden;
+
+        border-top: 1px grey solid;
+
+        padding: 0.1rem 0.25rem;
+    }
+
+    margin: 1rem;
+}
+
+.addIdeaNote {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+
+    .addIdeaNote__plusIcon {
+        color: #48c12f;
+    }
+}

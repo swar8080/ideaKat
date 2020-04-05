@@ -1,0 +1,54 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="Add RLS to Tenant Table" author="steven swartz">
+        <sqlFile
+            path="sqlscripts/add_row_level_security_tenant_table.sql"
+            relativeToChangelogFile="true"
+            dbms="postgresql"
+        />
+    </changeSet>
+    <changeSet id="Add RLS to Users" author="steven swartz">
+        <sql dbms="postgresql">
+            CALL setup_tenant_aware_table('users')
+        </sql>
+    </changeSet>
+    <changeSet id="Add RLS to Groups" author="steven swartz">
+        <sql dbms="postgresql">
+            CALL setup_tenant_aware_table('groups')
+        </sql>
+    </changeSet>
+    <changeSet id="Add RLS to Topics" author="steven swartz">
+        <sql dbms="postgresql">
+            CALL setup_tenant_aware_table('topic')
+        </sql>
+    </changeSet>
+    <changeSet id="Add RLS to Topic Ideas" author="steven swartz">
+        <sql dbms="postgresql">
+            CALL setup_tenant_aware_table('topicIdea')
+        </sql>
+    </changeSet>
+    <changeSet id="Add RLS to Topic Idea Tags" author="steven swartz">
+        <sql dbms="postgresql">
+            CALL setup_tenant_aware_table('topicIdeaTag')
+        </sql>
+    </changeSet>
+    <changeSet id="Add RLS for admin email confirmation" author="steven swartz">
+        <sql dbms="postgresql">
+            CALL setup_tenant_aware_table('adminEmailConfirmation')
+        </sql>
+    </changeSet>
+    <changeSet id="Add RLS for invite email confirmation" author="steven swartz">
+        <sql dbms="postgresql">
+            CALL setup_tenant_aware_table('inviteEmailConfirmation')
+        </sql>
+    </changeSet>
+    <changeSet id="Add RLS for password reset email confirmation" author="steven swartz">
+        <sql dbms="postgresql">
+            CALL setup_tenant_aware_table('passwordResetEmailConfirmation')
+        </sql>
+    </changeSet>
+</databaseChangeLog>

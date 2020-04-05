@@ -1,0 +1,136 @@
+.groupsPage {
+    min-width: 40%;
+    max-width: 50%;
+
+    max-height: 80%;
+    margin: 0 auto;
+    margin-top: 1rem;
+
+    background: white;
+    padding: 1rem 1rem 0.5rem 1rem;
+    border-radius: 0.1rem;
+}
+
+.groupsPage__header {
+    display: flex;
+}
+
+.groupsPage__headerText {
+    font-size: ms(3);
+    font-weight: bold;
+    margin-right: 0.25rem;
+}
+
+.groupsPage__headerHelpIcon {
+    align-self: center;
+    margin-bottom: 0.05rem;
+    cursor: pointer;
+
+    &:hover, &:active {
+        svg {
+            color: darkblue
+        }
+    }
+}
+
+.groupsPage__groupList {
+    overflow-y: auto;
+    max-height: 70vh;
+}
+
+.groupsPage__groupListItem {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+
+    & > * {
+        margin-right: 0.25rem;
+    }
+}
+
+.groupsPage__groupListItemImage{
+    width: 1.5em;
+    height: 1.5em;
+
+    display: flex;
+    align-items: center;
+
+    img {
+        width: 1.5em;
+        height: 1.5em;
+        margin-right: 0.25em;
+    };
+
+    svg.fa-users {
+        width: 1.5em;
+        color: $onyx;
+    }
+}
+
+.groupsPage__groupTopicsLink {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.groupsPage__groupActivityCount {
+    height: 1.1rem;
+    display: flex;
+    align-items: center;
+    padding: 0 0.35rem;
+
+    font-size: ms(-1) * 0.95;
+    background-color: lightgrey;
+    border-radius: 0.35rem;
+    font-weight: bold;
+
+    cursor: default;
+    user-select: none;
+}
+
+.groupsPage__editGroup {
+    &:hover, &:focus {
+        color: $editHoverColour; 
+    }
+
+    svg {
+        font-size: 0.85rem;
+    }
+
+    cursor: pointer;
+}
+
+.groupsPage  .divider{
+    height: 1px;
+    width: 100%;
+    margin: 0.5rem auto;
+    background-color: lightgrey;
+}
+
+.groupsPage__createButton {
+    span {
+        margin-left: 0.25rem;
+    }
+}
+
+.groupsPage__helpModalTitle {
+    font-size: ms(2);
+    font-weight: 600;
+}
+
+.groupsPage__helpModalBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .groupsPage__helpStatement {
+        font-size: ms(1);
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+    }
+
+    img {
+        max-width: 75%;
+        margin-bottom: 0.25rem;
+    }
+}

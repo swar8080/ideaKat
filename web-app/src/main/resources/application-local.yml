@@ -1,0 +1,42 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ideakat?useSSL=false
+    username: postgres
+    password: root
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL95Dialect
+        jdbc:
+          batch_size: 10
+        format_sql: true
+    show-sql: true
+
+  liquibase:
+    enabled: true
+    change-log: classpath:/liquibase/changelog/db.changelog-master.xml
+    url: jdbc:postgresql://localhost:5432/ideakat?useSSL=false
+    user: postgres
+    password: root
+    default-schema: public
+
+  mail:
+    debug: true
+
+server.servlet.session.timeout: 60m
+
+ideakat:
+  publicUrl: http://localhost:5000
+  email:
+    async-thread-pool:
+      coreSize: 1
+      maxPoolSize: 3
+      keepAliveSeconds: 30
+      queueCapacity: 3
+      throttleQueueSizeThreshold: 2
+      throttleWaitTimeMs: 5000
+  s3:
+    bucketName: ideakat-dev
+    bucketUrl: https://ideakat-dev.s3.amazonaws.com/
+

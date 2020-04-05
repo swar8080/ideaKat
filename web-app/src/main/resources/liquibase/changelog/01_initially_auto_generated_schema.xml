@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet author="steve (generated)" id="1579453722956-1">
+        <createSequence sequenceName="hibernate_sequence"/>
+    </changeSet>
+    <changeSet author="steve (generated)" id="1579453722956-2">
+        <createTable tableName="adminEmailConfirmation">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="adminEmailConfirmationPK"/>
+            </column>
+            <column name="createDate" type="timestamp"/>
+            <column name="modifyDate" type="timestamp"/>
+            <column name="tenantId" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="confirmationCode" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="valid" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="admin_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="steve (generated)" id="1579453722956-3">
+        <createTable tableName="groups">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="groupsPK"/>
+            </column>
+            <column name="createDate" type="timestamp"/>
+            <column name="modifyDate" type="timestamp"/>
+            <column name="tenantId" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="groupName" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="imageUrl" type="VARCHAR(2048)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="steve (generated)" id="1579453722956-4">
+        <createTable tableName="groups_topic">
+            <column name="groups_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="topics_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="steve (generated)" id="1579453722956-5">
+        <createTable tableName="inviteEmailConfirmation">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="inviteEmailConfirmationPK"/>
+            </column>
+            <column name="createDate" type="timestamp"/>
+            <column name="modifyDate" type="timestamp"/>
+            <column name="tenantId" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="confirmationCode" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="valid" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="steve (generated)" id="1579453722956-6">
+        <createTable tableName="tenant">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="tenantPK"/>
+            </column>
+            <column name="createDate" type="timestamp"/>
+            <column name="modifyDate" type="timestamp"/>
+            <column name="tenantName" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="steve (generated)" id="1579453722956-7">
+        <createTable tableName="topic">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="topicPK"/>
+            </column>
+            <column name="createDate" type="timestamp"/>
+            <column name="modifyDate" type="timestamp"/>
+            <column name="tenantId" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(1000)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ideaContributionInstructions" type="VARCHAR(400)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pinned" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="summary" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="author" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="groupId" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="steve (generated)" id="1579453722956-8">
+        <createTable tableName="topicIdea">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="topicIdeaPK"/>
+            </column>
+            <column name="createDate" type="timestamp"/>
+            <column name="modifyDate" type="timestamp"/>
+            <column name="tenantId" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="colour" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(1000)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="summary" type="VARCHAR(60)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="topic" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="steve (generated)" id="1579453722956-9">
+        <createTable tableName="topicIdeaTag">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="topicIdeaTagPK"/>
+            </column>
+            <column name="createDate" type="timestamp"/>
+            <column name="modifyDate" type="timestamp"/>
+            <column name="tenantId" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="label" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="topicIdea" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="steve (generated)" id="1579453722956-10">
+        <createTable tableName="users">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="usersPK"/>
+            </column>
+            <column name="createDate" type="timestamp"/>
+            <column name="modifyDate" type="timestamp"/>
+            <column name="tenantId" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="imageUrl" type="VARCHAR(2048)"/>
+            <column name="isAdmin" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="isConfirmed" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="steve (generated)" id="1579609904701-1">
+        <createTable tableName="passwordResetEmailConfirmation">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="passwordResetEmailConfirmationPK"/>
+            </column>
+            <column name="createDate" type="timestamp"/>
+            <column name="modifyDate" type="timestamp"/>
+            <column name="tenantId" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="confirmationCode" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="valid" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="steve (generated)" id="1579453722956-11">
+        <addUniqueConstraint columnNames="topics_id" tableName="groups_topic"/>
+    </changeSet>
+    <changeSet author="steve (generated)" id="1579453722956-12">
+        <addUniqueConstraint columnNames="topicIdea, label" tableName="topicIdeaTag"/>
+    </changeSet>
+    <changeSet author="steve (generated)" id="1579453722956-13">
+        <addUniqueConstraint columnNames="confirmationCode" constraintName="UC_ADMINEMAILCONFIRMATIONCONFIRMATIONCODE_COL" tableName="adminEmailConfirmation"/>
+    </changeSet>
+    <changeSet author="steve (generated)" id="1579453722956-14">
+        <addUniqueConstraint columnNames="groupName" constraintName="UC_GROUPSGROUPNAME_COL" tableName="groups"/>
+    </changeSet>
+    <changeSet author="steve (generated)" id="1579453722956-15">
+        <addUniqueConstraint columnNames="confirmationCode" constraintName="UC_INVITEEMAILCONFIRMATIONCONFIRMATIONCODE_COL" tableName="inviteEmailConfirmation"/>
+    </changeSet>
+    <changeSet author="steve (generated)" id="1579453722956-16">
+        <addUniqueConstraint columnNames="email" constraintName="UC_USERSEMAIL_COL" tableName="users"/>
+    </changeSet>
+    <changeSet author="steve (generated)" id="1579453722956-17">
+        <addForeignKeyConstraint baseColumnNames="user" baseTableName="topicIdea" constraintName="FK_4pwmq30s596pvkbk2kymynnhc" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="users"/>
+    </changeSet>
+    <changeSet author="steve (generated)" id="1579453722956-18">
+        <addForeignKeyConstraint baseColumnNames="tenantId" baseTableName="adminEmailConfirmation" constraintName="FK_5ir2jnj363aw7i3ivm72skv2a" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="tenant"/>
+    </changeSet>
+    <changeSet author="steve (generated)" id="1579453722956-19">
+        <addForeignKeyConstraint baseColumnNames="tenantId" baseTableName="inviteEmailConfirmation" constraintName="FK_a00cm8g7rd7c8eoy5wrx65t7x" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="tenant"/>
+    </changeSet>
+    <changeSet author="steve (generated)" id="1579453722956-20">
+        <addForeignKeyConstraint baseColumnNames="tenantId" baseTableName="topicIdea" constraintName="FK_cecfa5qbsedxtdodwairbe7tl" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="tenant"/>
+    </changeSet>
+    <changeSet author="steve (generated)" id="1579453722956-21">
+        <addForeignKeyConstraint baseColumnNames="tenantId" baseTableName="topicIdeaTag" constraintName="FK_h4hjpwtml7xprfr50898eref1" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="tenant"/>
+    </changeSet>
+    <changeSet author="steve (generated)" id="1579453722956-22">
+        <addForeignKeyConstraint baseColumnNames="admin_id" baseTableName="adminEmailConfirmation" constraintName="FK_hu3maet7shaoedwma09bht2mp" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="users"/>
+    </changeSet>
+    <changeSet author="steve (generated)" id="1579453722956-24">
+        <addForeignKeyConstraint baseColumnNames="tenantId" baseTableName="topic" constraintName="FK_j6wqu8bnxu0t8f1gdpqtu9emj" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="tenant"/>
+    </changeSet>
+    <changeSet author="steve (generated)" id="1579453722956-25">
+        <addForeignKeyConstraint baseColumnNames="groupId" baseTableName="topic" constraintName="FK_je0gyhqolwur6xe5er5acdcel" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="groups"/>
+    </changeSet>
+    <changeSet author="steve (generated)" id="1579453722956-26">
+        <addForeignKeyConstraint baseColumnNames="tenantId" baseTableName="groups" constraintName="FK_l4ga9xwahf7y5c905pi6n3m5g" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="tenant"/>
+    </changeSet>
+    <changeSet author="steve (generated)" id="1579453722956-27">
+        <addForeignKeyConstraint baseColumnNames="tenantId" baseTableName="users" constraintName="FK_lw2s7ijaeyj95wi0qnedohvi9" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="tenant"/>
+    </changeSet>
+    <changeSet author="steve (generated)" id="1579453722956-29">
+        <addForeignKeyConstraint baseColumnNames="author" baseTableName="topic" constraintName="FK_r61142n3a1m8om2jukkjqrybf" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="users"/>
+    </changeSet>
+    <changeSet author="steve (generated)" id="1579453722956-30">
+        <addForeignKeyConstraint baseColumnNames="groups_id" baseTableName="groups_topic" constraintName="FK_s8wid3qsyf4glf4c8fyim4y56" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="groups"/>
+    </changeSet>
+    <changeSet author="steve (generated)" id="1579453722956-31">
+        <addForeignKeyConstraint baseColumnNames="topics_id" baseTableName="groups_topic" constraintName="FK_tb1nyw8xsuyx5b71krgm6ypii" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="topic"/>
+    </changeSet>
+    <changeSet author="steve (generated)" id="1579609904701-2">
+        <addUniqueConstraint columnNames="confirmationCode" constraintName="UC_PASSWORDRESETEMAILCONFIRMATIONCONFIRMATIONCODE_COL" tableName="passwordResetEmailConfirmation"/>
+    </changeSet>
+    <changeSet author="steve (generated)" id="1579609904701-3">
+        <addForeignKeyConstraint baseColumnNames="tenantId" baseTableName="passwordResetEmailConfirmation" constraintName="FK_1tk6r2dpk99booxt65mohr0wx" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="tenant"/>
+    </changeSet>
+    <changeSet author="steve (generated)" id="1579609904701-4">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="passwordResetEmailConfirmation" constraintName="FK_mslavc3r3sr1c51wwcliw9iqg" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="users"/>
+    </changeSet>
+
+    <changeSet author="steve (generated)" id="1579453722956-28">
+        <addForeignKeyConstraint
+                baseColumnNames="topic"
+                baseTableName="topicIdea"
+                constraintName="topic_topicidea_fk"
+                onDelete="CASCADE"
+                deferrable="false"
+                initiallyDeferred="false"
+                referencedColumnNames="id"
+                referencedTableName="topic"
+        />
+    </changeSet>
+    <changeSet author="steve (generated)" id="1579453722956-23">
+        <addForeignKeyConstraint
+                baseColumnNames="topicIdea"
+                baseTableName="topicIdeaTag"
+                constraintName="topicideatag_topicidea_fk"
+                onDelete="CASCADE"
+                deferrable="false"
+                initiallyDeferred="false"
+                referencedColumnNames="id"
+                referencedTableName="topicIdea"
+        />
+    </changeSet>
+
+</databaseChangeLog>

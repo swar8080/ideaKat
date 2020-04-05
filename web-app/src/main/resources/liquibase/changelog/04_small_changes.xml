@@ -1,0 +1,47 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet id="drop-topic-idea-description-not-null-constraint" author="steven swartz">
+            <dropNotNullConstraint tableName="topicIdea" columnName="description" columnDataType="VARCHAR"/>
+    </changeSet>
+
+    <changeSet id="add-group-description-column" author="steven-swartz">
+        <addColumn tableName="groups">
+            <column name="description" type="VARCHAR(150)" afterColumn="groupName">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="rename-topic-idea-user-column" author="steven-swartz">
+        <renameColumn tableName="topicIdea" oldColumnName="user" newColumnName="author"/>
+    </changeSet>
+
+    <changeSet id="drop-unused-groups-topic-join-table" author="steven-swartz">
+        <dropTable tableName="groups_topic"/>
+    </changeSet>
+
+    <changeSet id="add-createdBy-to-groups" author="steven-swartz">
+        <addColumn tableName="groups">
+            <column name="createdBy" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet id="add-groups-createdBy-foreign-key" author="steven-swartz">
+        <addForeignKeyConstraint baseTableName="groups" baseColumnNames="createdBy" constraintName="groups_createdBy_fk"
+                                 referencedTableName="users" referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="drop-case-insensitive-group-name-per-tenant" author="steven-swartz" dbms="postgresql">
+        <dropIndex tableName="groups" indexName="unique_group_name_per_tenant"/>
+    </changeSet>
+    <changeSet id="create-case-sensitive-group-name-per-tenant" author="steven-swartz" dbms="postgresql">
+        <sql>
+            CREATE UNIQUE INDEX unique_group_name_per_tenant ON groups ("tenantId", UPPER("groupName"))
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

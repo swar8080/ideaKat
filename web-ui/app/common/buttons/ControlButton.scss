@@ -1,0 +1,24 @@
+.controlButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:not(.disabled):hover {
+        background-color: lightgray;
+        color: darkorange;
+        cursor: pointer;
+    }
+    &.disabled {
+        color: grey;
+    }
+
+    .controlButtonIcon {
+        margin: 0 0.2rem;
+    }
+   
+    .controlButtonText {
+        line-height: normal;
+        font-weight: bold;
+        user-select: none;
+    }
+}

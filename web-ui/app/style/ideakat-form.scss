@@ -1,0 +1,30 @@
+.ideakat-form {
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 1rem;
+
+    background: white;
+    padding: 1rem;
+    border-radius: 0.1rem;
+
+    .ideakat-form-header {
+        font-size: ms(3);
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .ideakat-form-field-error {
+        padding-top: 0.2rem;
+        font-size: ms(-1);
+        color: red;
+    }
+
+    .ideakat-form-status-message {
+        margin-top: 0.5rem;
+    }
+
+    .ideakat-form-error-message {
+        margin-top: 0.5rem;
+        color: red;
+    }
+}

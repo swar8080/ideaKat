@@ -1,0 +1,83 @@
+.ideaNoteTag {
+    font-size: ms(-2);
+    line-height: normal;
+    min-width: 30%;
+    text-align: center;
+
+    font-family: 'Oswald', 'sans-serif';
+    font-weight: bold;
+    background: lightgrey;
+    border: 1px black solid;
+    border-radius: 0.25rem;
+    user-select: none;
+
+    padding: 0 0.25rem;
+    margin: 0.1rem 0.1rem;
+
+    &.selected {
+        border: 2px black solid;
+    }
+}
+
+.ideaNoteTag.removable {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    min-width: 0;
+    padding: 0.25rem;
+
+    .ideaNoteTag__label {
+        margin-right: 1rem;
+    }
+
+    .ideaNoteTag__remove {
+        &:hover {
+            color: white;
+        }
+    }
+}
+
+.ideaNoteTag.add {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    min-width: 0;
+    padding: 0.25rem 0.5rem;
+    color: $addHoverColour;
+
+    &:hover {
+        background-color: #afacac;
+    }
+}
+
+.ideaNoteTag.edit {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    min-width: 0;
+    padding: 0.25rem;
+
+    .ideaNoteTag__editableInput {
+        margin-right: 0.5rem;
+    }
+
+    &:not(.disabled) {
+        .ideaNoteTag__doneEditButton {
+            cursor: pointer;
+        }
+    }
+
+    &.disabled {
+        .ideaNoteTag__doneEditButton {
+            color: grey;
+        }
+    }
+}
+
+
+

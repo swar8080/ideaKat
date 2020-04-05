@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "outDir": "../web-api/target/classes/static",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "module": "es6",
+    "moduleResolution": "node",
+    "target": "ES2017",
+    "jsx": "react",
+    "allowJs": true
+  }
+}

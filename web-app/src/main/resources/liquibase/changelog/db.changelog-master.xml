@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <include file="00_role_level_security_config.xml" relativeToChangelogFile="true"/>
+    <include file="01_initially_auto_generated_schema.xml" relativeToChangelogFile="true"/>
+    <include file="02_add_row_level_security_to_initial_schema.xml" relativeToChangelogFile="true"/>
+    <include file="03_index_columns.xml" relativeToChangelogFile="true"/>
+    <include file="04_small_changes.xml" relativeToChangelogFile="true"/>
+
+</databaseChangeLog>

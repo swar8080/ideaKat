@@ -1,0 +1,14 @@
+.inlineFormItemWithTooltip {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 0.5rem;
+
+    .inlineFormItemWithTooltip__icon {
+        margin-top: 0.25rem;
+    }
+
+    label {
+        margin: 0 0.25rem 0 0;
+    }
+}

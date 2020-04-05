@@ -1,0 +1,19 @@
+.pageBottomControl {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    min-height: 5vh;
+
+    border-radius: 5% 5% 0 0;
+    background-color: white;
+    border: 1px black solid;
+    border-bottom: none;
+
+    .pageBottomControl__controlButton {
+        padding: 1vh 10vh;
+
+        &:not(.disabled):hover {
+            color: $addHoverColour;
+        }
+    }
+}

@@ -1,0 +1,133 @@
+.topicIdeasPage {
+    height: 92vh;
+    
+    display: flex;
+    flex-direction: column;
+
+    .topicIdeasPage__header {
+        width: 100%;
+
+        display: flex;
+        flex-direction: row;
+                    
+        margin-bottom: 1vh;
+
+        .topicIdeasPage__contributionInstructions {
+            min-height: 5vh;
+            max-height: 17.5vh;
+            flex-grow: 1;
+            margin: 0.5rem 12.25vw 0.5rem 25.5vw;
+            padding: 0 0.5rem;
+            padding-bottom: 0.5rem;
+    
+            overflow-y: auto;
+            overflow-wrap: break-word;
+            background-color: white;
+            border-radius: 0.25rem;
+            box-shadow: 0 0 3px 0px #A5A5A5;
+    
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+    
+            .topicIdeasPage_topicSummary {
+                width: 70%;
+                font-size: ms(1);
+                font-weight: bold;
+                text-align: center;
+            }
+
+            .topicIdeasPage__instructions {
+                width: 70%;
+                font-size: ms(-1);
+                margin-top: 0.4rem;
+                text-align: center;
+                white-space: pre-line;
+            }
+        }
+    }
+
+    .topicIdeasPage__ideaBoardContainer {
+        flex-grow: 1;
+        min-height: 0;
+
+        display: flex;
+        flex-direction: row;
+        margin: 0 1vw;
+
+        .topicIdeasPage__ideaBoardFilters{
+            width: 17vw;
+            align-self: start;
+            
+            margin-right: 1.5vw;
+        }
+    
+        .topicIdeasPage__ideaBoard {
+            flex-grow: 1;
+            align-self: stretch;
+
+            background-color: white;
+            overflow-y: auto;
+            padding-top: 0.25rem;
+            border-radius: 0.25rem;
+            box-shadow: 0 0 3px 0px #A5A5A5;
+        }    
+
+        margin-bottom: 1vh;
+    }
+}
+
+.topicIdeasPage__filtersHeading {
+    font-size: ms(1);
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    background-color: #AAAAAA;
+    border-radius: 0.5rem 0.5rem 0 0;
+    box-shadow: 0 0 2px 1px #AAAAAA
+}
+
+.topicIdeasPage__filtersForm {
+    background-color: white;
+}
+
+.form-group.topicIdeasPage__formGroup {
+    padding: 0.5rem;
+    margin: 0;
+    border-bottom: 1px lightgrey solid;
+}
+
+.topicIdeasPage__formGroup.topicIdeasPage__formColourGroup {
+    padding-left: 0;
+}
+
+.topicIdeasPage__colourFilter {
+    width: 12vw;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+
+    .ideaColourSelector__colour{
+        width: 3vw;
+        height: 3vw;
+        flex-grow: 0;
+        flex-shrink: 0;
+        padding-left: 0;
+        margin: 0.5rem;
+
+        &:first-of-type {
+            margin: 0.5rem;
+        }
+    }
+}
+
+.topicIdeasPage__tagFilters {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.topicIdeasPage__filterControls {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

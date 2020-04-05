@@ -1,0 +1,25 @@
+.ideaColourSelector {
+    display: flex;
+    flex-direction: row;
+}
+
+.ideaColourSelector__colour {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px grey solid;
+    cursor: pointer;
+
+    &.selected {
+        border-width: 3px;
+    }
+
+    &:not(.selected):hover {
+        box-shadow: 0 0 0.2rem 0.2rem lightsteelblue;
+    }
+
+    margin: 0.5rem;
+    &:first-of-type {
+        margin-left: 0;
+    }
+}

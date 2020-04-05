@@ -1,0 +1,52 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet id="add-create-role-helper-function" author="steven swartz">
+        <sqlFile
+            path="sqlscripts/create_role_if_not_exists_procedure.sql"
+            splitStatements="false"
+            relativeToChangelogFile="true"
+            dbms="postgresql"
+        />
+    </changeSet>
+    <changeSet id="add-setup-tenant-aware-table-procedures" author="steven swartz">
+        <sqlFile
+            path="sqlscripts/setup_tenant_aware_table.sql"
+            splitStatements="false"
+            relativeToChangelogFile="true"
+            dbms="postgresql"
+        />
+    </changeSet>
+    <changeSet id="add-system-role" author="steven swartz">
+        <sql dbms="postgresql">
+            CALL create_role_if_not_exists('system_user')
+        </sql>
+    </changeSet>
+    <changeSet id="add-tenant-role" author="steven swartz">
+        <sql dbms="postgresql">
+            CALL create_role_if_not_exists('tenant_user')
+        </sql>
+    </changeSet>
+    <changeSet id="grant-table-usage-by-default-to-system-user" author="steven swartz">
+        <sql dbms="postgresql">
+            ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT,INSERT,UPDATE,DELETE ON TABLES TO system_user
+        </sql>
+    </changeSet>
+    <changeSet id="grant-sequence-usage-by-default-to-system-user" author="steven swartz">
+        <sql dbms="postgresql">
+            ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT USAGE ON SEQUENCES TO system_user
+        </sql>
+    </changeSet>
+    <changeSet id="grant-table-usage-by-default-to-tenant-user" author="steven swartz">
+        <sql dbms="postgresql">
+            ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT,INSERT,UPDATE,DELETE ON TABLES TO tenant_user
+        </sql>
+    </changeSet>
+    <changeSet id="grant-sequence-usage-by-default-to-tenant-user" author="steven swartz">
+        <sql dbms="postgresql">
+            ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT USAGE ON SEQUENCES TO tenant_user
+        </sql>
+    </changeSet>
+</databaseChangeLog>

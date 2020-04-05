@@ -1,0 +1,157 @@
+.groupTopicCard {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+
+    padding: 0.5rem;
+    border: 1px transparent;
+    border-radius: 0.25rem;
+    background-color: white;
+
+    .groupTopicCard__heading {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        position: relative;
+        overflow-wrap: break-word;
+
+        padding-bottom: 0.2rem;
+        &.groupTopicCard__heading--summary-only {
+            padding-bottom: 0.4rem;
+        }
+
+        .groupTopicCard__userAvatar{  
+           padding: 0.25rem 0.5rem 0.05rem 0;
+           align-self: center;
+        }
+
+        .groupTopicCard__summaryContainer{
+            flex-grow: 1;
+            min-width: 0;
+            align-self: stretch;
+            
+            font-size: ms(1);
+            font-weight: bold;
+
+            display: flex;
+            align-items: center;
+            line-height: normal;
+
+            .groupTopicCard__summaryText {
+                min-width: 0;
+            }
+        }
+
+        .groupTopicCard__icons {
+            line-height: normal;
+            position: relative;
+            bottom: 0.3rem;
+            left: 0.25rem;
+            display: flex;
+        }
+
+        .groupTopicCard__deleteIcon {
+            margin-right: 0.3rem;
+
+            cursor: pointer;
+            color: #606060;
+
+            &:hover {
+                color: #303030;
+            }
+        }
+
+        .groupTopicCard__pinnedIcon{
+            &.pinned {
+                color: red;
+
+                &.unpinnable:hover {
+                    cursor: pointer;
+                    &:hover {
+                        color: grey;
+                    }
+                }
+            }
+
+            &.unpinned {
+                cursor: pointer;
+                &:hover {
+                    color: red;
+                }
+            }
+        }
+    }
+
+    .groupTopicCard__description{
+        padding: 0.5rem 0.5rem 0.5rem 0.2rem;
+        font-size: ms(0);
+        
+        display: flex;
+        flex-direction: column;
+        overflow-wrap: break-word;
+
+        .groupTopicCard__descriptionText {
+            min-width: 0;
+            white-space: pre-wrap;
+            &.truncate {
+                max-height: ms(0)*6;
+                overflow: hidden;
+                text-overflow: clip;
+            }
+        }
+
+        .groupTopicCard__expandDescription {
+            color: black;
+            font-weight: bolder;
+            
+            align-self: center;
+            line-height: normal;
+
+            border: 1px grey solid;
+            width: 2rem;
+            padding: 0 0.2rem;
+            border-radius: 15%;
+            cursor: pointer;
+
+            text-align: center;
+            color: grey;
+        }
+    }
+
+    .groupTopicCard__controls {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        height: 2rem;
+
+        .controlButton {
+            flex-grow: 1;
+
+            border-right: 1px lightgray solid;
+            border-bottom: 1px lightgray solid;
+            &:first-child {
+                border-left: 1px lightgrey solid;
+            }
+
+            &.view .controlButtonIcon {
+                margin-top: 0.1rem;
+            }
+
+            &:not(.disabled) {
+                &.addIdea:hover {
+                    color: green;
+                }
+    
+                &.view:hover {
+                    color: blue;
+                }
+            }
+        }
+    }
+
+    .groupTopicCard__divider {
+        padding: 0 0.2rem;
+        height: 1px;
+        border-bottom: 1px lightgrey solid;
+    }
+}

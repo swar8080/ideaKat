@@ -1,0 +1,122 @@
+.landingPage {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.landingPage__main {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.landingPage__mainContent {
+    min-height: 60vh;
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background: 
+        linear-gradient(
+            rgba(255, 249, 196, 0.5),
+            rgba(255, 249, 196, 0.5)
+        ), 
+        url('../../assets/landing-page-sky.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+    padding-bottom: 3rem;
+}
+
+.landingPage__heading {
+    text-align: center;
+    font-weight: bold;
+    padding: 1rem;
+
+    .landingPage__mainHeading {
+        font-size: ms(5);
+    }
+    
+    .landingPage__subHeading {
+        font-size: ms(2);
+    }
+}
+
+.landingPage__description {
+    width: 50%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 1rem;
+    padding-bottom: 2rem;
+
+    background: white;
+
+    .landingPage__descriptionList {
+        margin: auto;
+        border-radius: 1%;
+        padding-top: 1rem;
+        padding-bottom: 0.5rem;
+        padding-right: 0.5rem;
+    
+        li {
+            margin: 1.5rem 0;
+            font-family: Lato;
+            font-size: ms(2);
+        }
+    }
+}
+
+.landingPage__mainActionControls {
+    height: 33%;
+    width: 100%;
+
+    display: flex;
+
+    .landingPage-action-control {
+       width: 50%; 
+       display: flex;
+       justify-content: center;
+    }
+
+    button {
+        min-width: 10rem;
+        font-size: 1.5rem;
+        box-shadow: 0 0 3px 1px lightgrey;
+    }
+}
+
+.landingPage__mainPhotoEnd {
+    width: 100%;
+    height: 50vh;
+    margin-top: -0.1rem; //hide the sharp break between images
+
+    display: flex;
+    justify-content: center;
+
+    img {
+        width: 100%;
+        height: 50vh;
+        user-select: none;
+    }
+
+    .landingPage__mainPhotoEndOverlay {
+        height: 50vh;
+        width: 100%;
+        position: absolute;
+        z-index: 2;
+        background: #fff9c4;
+        opacity: 0.50;
+    }
+}
