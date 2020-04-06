@@ -18,7 +18,16 @@ module.exports = () => ({
         rules: [
             {
                 test: /\.tsx?$/,
-                use: "ts-loader",
+                use: [
+                    {
+                        loader: "babel-loader",
+                        query: {
+                            retainLines: true,
+                            cacheDirectory: true
+                        }
+                    },
+                    "ts-loader"
+                ],
                 exclude: [/node_modules/, /\.test\.tsx?$/, /\.stories\.*$/]
             },
             {

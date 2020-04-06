@@ -5,7 +5,13 @@
     "noImplicitAny": true,
     "module": "es6",
     "moduleResolution": "node",
-    "target": "ES2017",
+    "target": "ES2015",
+    "lib": [
+      "DOM",
+      "ScriptHost",
+      "ES2015",
+      "ES2017.Object"
+    ],
     "jsx": "react",
     "allowJs": true
   }
