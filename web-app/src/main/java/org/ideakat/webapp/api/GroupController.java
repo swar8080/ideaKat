@@ -50,7 +50,7 @@ public class GroupController {
     public List<GroupPageGroupVM> getGroupsOrderedByActivity() {
         User currentUser = authService.getLoggedInUser();
 
-        List<GroupWithActivityCount> groupWithActivityCounts = groupActivityRepository.getGroupsOrderedByActivityCount(getDateToTrackActivityFrom());
+        List<GroupWithActivityCount> groupWithActivityCounts = groupActivityRepository.getGroupsOrderedByActivityCountSince(getDateToTrackActivityFrom());
         List<GroupPageGroupVM> groupVMs = groupWithActivityCounts.stream()
              .map(group -> GroupPageGroupVM.builder()
                                            .groupId(group.getGroupId())

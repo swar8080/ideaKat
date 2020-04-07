@@ -15,7 +15,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name="topicIdea")
+@Table(name = TopicIdea.TABLE_NAME)
 @Data
 @Builder
 @AllArgsConstructor
@@ -51,6 +51,7 @@ public class TopicIdea extends TenantAwareEntity implements HasOwner {
         Green;
     }
 
+    public static final String TABLE_NAME = "topicIdea";
     public static final int IDEA_SUMMARY_MAX_LENGTH = 60;
     public static final int IDEA_MAX_LENGTH = 1000;
 

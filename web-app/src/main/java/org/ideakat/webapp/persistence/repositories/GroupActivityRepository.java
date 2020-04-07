@@ -9,20 +9,23 @@ import java.util.List;
 
 public interface GroupActivityRepository extends Repository<Group, Long> {
 
+    //TODO see how well postgres can optimize this with a larger dataset compared to a native query joining on a subselect
     @Query(
-       "SELECT g.id as groupId, g.groupName as groupName, g.description as description, g.imageUrl as imageUrl, g.createdBy.id as createdBy,  COUNT(t.id) as activityCount "
+       "SELECT g.id as groupId, g.groupName as groupName, g.description as description, g.imageUrl as imageUrl, g.createdBy.id as createdBy, "
+       + "SUM("
+           + "CASE WHEN "
+               + "t.id IS NOT NULL AND( "
+                   + "t.createDate > :since OR EXISTS("
+                        + "SELECT 1 "
+                        + "FROM TopicIdea ideas "
+                        + "WHERE ideas.topic.id=t.id AND ideas.createDate > :since"
+                    + ")"
+               + ") THEN 1 ELSE 0 END"
+           + ") as activityCount "
        + "FROM Group g "
        + "LEFT JOIN g.topics t "
-        + "WHERE "
-            + "t.id IS NULL "
-            + "OR t.createDate > :since "
-            + "OR EXISTS("
-                + "SELECT 1 "
-                + "FROM TopicIdea ideas "
-                + "WHERE ideas.topic.id=t.id AND ideas.createDate > :since"
-            + ") "
        + "GROUP BY g.id "
-       + "ORDER BY COUNT(t.id) DESC, g.groupName ASC"
+       + "ORDER BY activityCount DESC, g.groupName ASC"
     )
-    List<GroupWithActivityCount> getGroupsOrderedByActivityCount(Date since);
+    List<GroupWithActivityCount> getGroupsOrderedByActivityCountSince(Date since);
 }

@@ -9,7 +9,7 @@ import org.ideakat.domain.entities.user.User;
 import javax.persistence.*;
 
 @Entity
-@Table(name="topic")
+@Table(name = Topic.TABLE_NAME)
 public class Topic extends TenantAwareEntity implements HasOwner {
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -38,6 +38,7 @@ public class Topic extends TenantAwareEntity implements HasOwner {
         return group.getId();
     }
 
+    public static final String TABLE_NAME = "topic";
     public static final int SUMMARY_MAX_LENGTH = 200;
     public static final int DESCRIPTION_MAX_LENGTH = 1000;
     public static final int IDEA_CONTRIBUTION_INSTRUCTIONS_MAX_LENGTH = 400;
