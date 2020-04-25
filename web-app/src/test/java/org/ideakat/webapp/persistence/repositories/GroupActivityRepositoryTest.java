@@ -26,7 +26,7 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-@ActiveProfiles({"test-jpa"})
+@ActiveProfiles({"integration"})
 public class GroupActivityRepositoryTest extends PersistenceBaseTest {
 
     @Autowired
@@ -117,7 +117,7 @@ public class GroupActivityRepositoryTest extends PersistenceBaseTest {
     //used to override hibernate's @CreationTimestamp
     private void updateCreateDate(BaseEntity entity, String tableName, Date newCreateDate){
         entityManager.flush();
-        jdbcTemplate.update("UPDATE " + tableName + " SET createDate=? WHERE id=?", newCreateDate, entity.getId());
+        jdbcTemplate.update("UPDATE \"" + tableName + "\" SET \"createDate\"=? WHERE id=?", newCreateDate, entity.getId());
         entityManager.refresh(entity);
     }
 }

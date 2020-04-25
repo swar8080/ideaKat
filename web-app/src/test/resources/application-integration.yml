@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${embedded.postgresql.host}:${embedded.postgresql.port}/${embedded.postgresql.schema}
+    username: ${embedded.postgresql.user}
+    password: ${embedded.postgresql.password}
+    driver-class-name: org.postgresql.Driver
+
+  liquibase:
+    enabled: true
+    change-log: classpath:/liquibase/changelog/db.changelog-master.xml
+    url: jdbc:postgresql://${embedded.postgresql.host}:${embedded.postgresql.port}/${embedded.postgresql.schema}
+    user: ${embedded.postgresql.user}
+    password: ${embedded.postgresql.password}
+
+  jpa:
+    properties.hibernate:
+      multiTenancy: NONE
+      tenant_identifier_resolver: org.ideakat.webapp.persistence.TestTenantIdentifierResolver
+      format_sql: true
+    hibernate.ddl-auto: none
+    show-sql: true
+
+  test.database.replace: none

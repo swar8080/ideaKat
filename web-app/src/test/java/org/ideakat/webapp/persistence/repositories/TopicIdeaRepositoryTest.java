@@ -20,7 +20,7 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-@ActiveProfiles({"test-jpa"})
+@ActiveProfiles({"integration"})
 public class TopicIdeaRepositoryTest extends PersistenceBaseTest {
 
     @Autowired

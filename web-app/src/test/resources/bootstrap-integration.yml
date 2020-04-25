@@ -1,0 +1,3 @@
+embedded.postgresql:
+  enabled: true
+  dockerImage: postgres:11.3

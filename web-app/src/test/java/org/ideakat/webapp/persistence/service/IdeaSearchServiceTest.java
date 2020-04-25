@@ -29,7 +29,7 @@ import static org.junit.Assert.assertTrue;
 @RunWith(SpringRunner.class)
 @DataJpaTest
 @Import({IdeaSearchService.class})
-@ActiveProfiles({"test-jpa"})
+@ActiveProfiles({"integration"})
 public class IdeaSearchServiceTest extends PersistenceBaseTest {
 
     @Autowired
